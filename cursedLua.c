@@ -26,8 +26,8 @@ int cl_getxy(lua_State *L){
     int x;
     int y;
     getmaxyx(stdscr,y,x);
-    lua_pushnumber(L,x);
     lua_pushnumber(L,y);
+    lua_pushnumber(L,x);
     return 2;
 }
 

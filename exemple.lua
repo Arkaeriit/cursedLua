@@ -2,7 +2,7 @@
 function main()
     initscr()
     curs_set(0)
-    local x,y = getmaxyx()
+    local y,x = getmaxyx()
     x = (x - x%2)/2 - 7
     y = (y - y%2)/2 
     mvprintw(y,x,"Hello, world!")
