@@ -22,11 +22,19 @@ int cl_refresh(lua_State *L){
     return 0;
 }
 
+int cl_getxy(lua_State *L){
+    int x;
+    int y;
+    getmaxyx(stdscr,y,x);
+    lua_pushnumber(L,x);
+    lua_pushnumber(L,y);
+    return 2;
+}
 
 
 
 int cl_mvprintw(lua_State *L){
-    char* str = luaL_checkstring(L,3);
+    const char* str = luaL_checkstring(L,3);
     int x = luaL_checknumber(L,2);
     int y = luaL_checknumber(L,1);
     mvprintw(y,x,"%s",str);
@@ -47,5 +55,7 @@ void cl_include(lua_State *L){
     lua_setglobal(L,"mvprintw");
     lua_pushcfunction(L,cl_refresh);
     lua_setglobal(L,"refresh");
+    lua_pushcfunction(L,cl_getxy);
+    lua_setglobal(L,"getmaxyx");
 }
 

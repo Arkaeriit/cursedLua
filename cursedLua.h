@@ -13,7 +13,8 @@
 int cl_init(lua_State *L); //permet d'initialiser ncurses
 int cl_close(lua_State *L); //permet de fermer ncurses
 int cl_cursset(lua_State *L); //permet de chisir l'état du curseur
-int cl_refresh(lua_State *L);
+int cl_refresh(lua_State *L); //permet de réactualiser l'écrant
+int cl_getxy(lua_State *L); //Permet de savoir les dimentions de l'écrant
 
 //Fonctions servant à écrire sur l'écrant
 

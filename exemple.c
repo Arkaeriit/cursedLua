@@ -7,27 +7,27 @@
 #include "cursedLua.h"
 
 int main(){
-  lua_State* L;
-  // initialize Lua interpreter
-  L = luaL_newstate();
-  
-  // load Lua base libraries (print / math / etc)
-  luaL_openlibs(L);
-  
-  //On charge les fonctions custom
-  cl_include(L);
+    lua_State* L;
+    // initialize Lua interpreter
+    L = luaL_newstate();
 
-  //On charge le fichier
-  luaL_dofile(L,"exemple.lua");
+    // load Lua base libraries (print / math / etc)
+    luaL_openlibs(L);
 
-  //On appelle la fonction
-  lua_getglobal(L,"main");
+    //On charge les fonctions custom
+    cl_include(L);
 
-  //On execute la fonction
-  lua_call(L,0,0);
+    //On charge le fichier
+    luaL_dofile(L,"exemple.lua");
 
-  // Cleanup:  Deallocate all space assocatated with the lua state */
-  lua_close(L);
+    //On appelle la fonction
+    lua_getglobal(L,"main");
 
-  return 0;
+    //On execute la fonction
+    lua_call(L,0,0);
+
+    // Cleanup:  Deallocate all space assocatated with the lua state */
+    lua_close(L);
+
+    return 0;
 }
