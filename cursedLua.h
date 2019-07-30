@@ -11,10 +11,13 @@
 //Foncions qui servent à un crontrole général de l'écrant
 
 int cl_init(lua_State *L); //permet d'initialiser ncurses
+int cl_echo(lua_State *L);
+int cl_noecho(lua_State *L);
 int cl_close(lua_State *L); //permet de fermer ncurses
 int cl_cursset(lua_State *L); //permet de chisir l'état du curseur
 int cl_refresh(lua_State *L); //permet de réactualiser l'écrant
 int cl_getxy(lua_State *L); //Permet de savoir les dimentions de l'écrant
+int cl_getch(lua_State *L); //Permet de récupérer les inputs de l'utilisateur
 
 //Fonctions servant à écrire sur l'écrant
 
