@@ -7,13 +7,8 @@ function main()
     y = (y - y%2)/2 
     mvprintw(y,x,"Hello, world!")
     refresh()
-    wait(50000000)
+    os.execute("sleep 5")
     endwin()
 end
 
-function wait(n)
-    for i=1,n do
-        local a="lol"
-        a= a..a..a
-    end
-end
+--setlocale(LC_ALL, "")

@@ -7,7 +7,7 @@ main.o : exemple.c cursedLua.h
 	gcc -c exemple.c -o main.o
 
 test.bin : main.o cursedLua.o 
-	gcc main.o cursedLua.o -lncurses -llua -lm -ldl -o test.bin
+	gcc main.o cursedLua.o -lncursesw -llua -lm -ldl -o test.bin
 
 clean : 
 	rm -f *.bin
