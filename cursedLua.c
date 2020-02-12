@@ -46,40 +46,7 @@ int cl_getch(lua_State *L){
     fseek(stdin,0,SEEK_END);
     keypad(stdscr,TRUE);
     int elem = getch();
-    switch(elem){
-        case KEY_ENTER :
-            lua_pushstring(L,"KEY_ENTER");
-            break;
-        case KEY_BACKSPACE :
-            lua_pushstring(L,"KEY_BACKSPACE" );
-            break;
-        case KEY_UP :
-            lua_pushstring(L,"KEY_UP" );
-            break;
-        case KEY_DOWN :
-            lua_pushstring(L,"KEY_DOWN" );
-            break;
-        case KEY_LEFT :
-            lua_pushstring(L,"KEY_LEFT" );
-            break;
-        case KEY_RIGHT :
-            lua_pushstring(L,"KEY_RIGHT" );
-            break;
-        case KEY_HOME :
-            lua_pushstring(L,"KEY_HOME" );
-            break;
-        case KEY_END :
-            lua_pushstring(L,"KEY_END");
-            break;
-        case KEY_NPAGE :
-            lua_pushstring(L,"KEY_NPAGE" );
-            break;
-        case KEY_PPAGE :
-            lua_pushstring(L,"KEY_PPAGE" );
-            break;
-        default :
-            lua_pushstring(L,(char*) &elem);
-    }
+    lua_pushnumber(L,elem);
     return 1;
 }
 
@@ -195,8 +162,29 @@ void cl_include(lua_State *L){
     lua_setglobal(L,"set_color");
     lua_pushcfunction(L,cl_getchTime);
     lua_setglobal(L,"getchTime");
-}
 
+    //Définition de caractères spréciaux
+    lua_pushnumber(L,KEY_ENTER);
+    lua_setglobal(L,"KEY_ENTER");
+    lua_pushnumber(L,KEY_BACKSPACE);
+    lua_setglobal(L,"KEY_BACKSPACE"); 
+    lua_pushnumber(L,KEY_UP);
+    lua_setglobal(L,"KEY_UP"); 
+    lua_pushnumber(L,KEY_DOWN);
+    lua_setglobal(L,"KEY_DOWN"); 
+    lua_pushnumber(L,KEY_LEFT);
+    lua_setglobal(L,"KEY_LEFT"); 
+    lua_pushnumber(L,KEY_RIGHT);
+    lua_setglobal(L,"KEY_RIGHT"); 
+    lua_pushnumber(L,KEY_HOME);
+    lua_setglobal(L,"KEY_HOME"); 
+    lua_pushnumber(L,KEY_END);
+    lua_setglobal(L,"KEY_END"); 
+    lua_pushnumber(L,KEY_NPAGE);
+    lua_setglobal(L,"KEY_NPAGE"); 
+    lua_pushnumber(L,KEY_PPAGE);
+    lua_setglobal(L,"KEY_PPAGE"); 
+}
 
 
 
