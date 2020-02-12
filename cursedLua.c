@@ -123,6 +123,7 @@ int cl_getchTime(lua_State* L){
             i = timeout+1;
     }
     lua_pushnumber(L,ret);
+    return 1;
 }
 
 void cl_include(lua_State *L){
