@@ -198,6 +198,7 @@ int luaopen_cursedLua(lua_State *L){
     lua_pushstring(L ,"KEY_PPAGE"); 
     lua_pushinteger(L ,KEY_PPAGE);
     lua_settable(L, -3);
+    puts("cursedLua loaded");
     return 1;
 }
 
