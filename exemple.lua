@@ -1,15 +1,19 @@
+#!/usr/local/bin/lua
+
+local nc = require("cursedLua")
 
 function main()
-    initscr()
-    curs_set(0)
-    start_color()
-    local y,x = getmaxyx()
+    nc.initscr()
+    nc.curs_set(0)
+    nc.start_color()
+    local y,x = nc.getmaxyx()
     x = (x - x%2)/2 - 7
     y = (y - y%2)/2 
-    mvprintw(y,x,"Hello, world!")
-    refresh()
+    nc.mvprintw(y,x,"Hello, world!")
+    nc.refresh()
     os.execute("sleep 5")
-    endwin()
+    nc.endwin()
 end
 
---setlocale(LC_ALL, "")
+main()
+
